@@ -340,7 +340,7 @@ function submitForm() {
     submitBtn.disabled = true;
     submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-    fetch('/submit', {
+    fetch('/api/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elite Mentorship - Become Irreplaceable</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2b2b",
+                        "accent": "#FFD700", // Yellow for highlights
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#050505", // Deep black
+                        "surface-dark": "#121212", // Slightly lighter black
+                    },
+                    fontFamily: {
+                        "display": ["Bebas Neue", "sans-serif"],
+                        "heading": ["Montserrat", "sans-serif"],
+                        "body": ["Montserrat", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.font-heading {
+            font-weight: 700;}
+        .font-body {
+            font-weight: 500;}
+    </style>
+</head>
+<body class="bg-background-dark text-white font-body overflow-x-hidden">
+<header class="fixed top-0 left-0 w-full z-50 bg-background-dark/90 backdrop-blur-md border-b border-[#333]">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+<span class="font-display text-3xl tracking-wide">ELITE<span class="text-primary">MENTORSHIP</span></span>
+</div>
+<button onclick="openModal()" class="bg-primary hover:bg-red-600 transition-colors text-white text-sm font-bold px-5 py-2 rounded uppercase tracking-wider font-heading">
+            Apply Now
+        </button>
+</div>
+</header>
+<section class="relative pt-32 pb-20 px-6 bg-background-dark flex flex-col items-center text-center">
+<div class="max-w-4xl w-full flex flex-col gap-8">
+<div class="space-y-4">
+<h1 class="text-5xl md:text-7xl font-display uppercase leading-[0.9] tracking-normal max-w-5xl mx-auto">
+                Companies Aren't Hiring Freshers<br class="hidden md:inline"/> in the <span class="text-primary">Agentic Era</span>.<br/>
+                I Mentor You to Become<br class="hidden md:inline"/> Someone They <span class="text-accent">Can't Ignore</span>.
+            </h1>
+<h2 class="text-gray-400 text-lg md:text-xl font-heading font-bold">
+                Not a course. Not theory. Real-world software mentorship.
+            </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left my-6">
+<div class="flex items-start gap-3 p-3 border border-[#333] rounded bg-surface-dark">
+<span class="material-symbols-outlined text-accent shrink-0">person_off</span>
+<span class="text-sm text-gray-200 font-body font-medium">You stop being treated like a fresher</span>
+</div>
+<div class="flex items-start gap-3 p-3 border border-[#333] rounded bg-surface-dark">
+<span class="material-symbols-outlined text-accent shrink-0">architecture</span>
+<span class="text-sm text-gray-200 font-body font-medium">You design systems, not just write code</span>
+</div>
+<div class="flex items-start gap-3 p-3 border border-[#333] rounded bg-surface-dark">
+<span class="material-symbols-outlined text-accent shrink-0">smart_toy</span>
+<span class="text-sm text-gray-200 font-body font-medium">You work with AI instead of competing against it</span>
+</div>
+<div class="flex items-start gap-3 p-3 border border-[#333] rounded bg-surface-dark">
+<span class="material-symbols-outlined text-accent shrink-0">shield</span>
+<span class="text-sm text-gray-200 font-body font-medium">You become hard to replace — even during layoffs</span>
+</div>
+</div>
+<div class="relative w-full aspect-video bg-[#1a1a1a] border border-[#333] rounded-lg shadow-[0_0_30px_rgba(238,43,43,0.1)] overflow-hidden">
+<iframe
+    width="100%"
+    height="100%"
+    src="https://www.youtube.com/embed/lT4c1NxoqB0?rel=0"
+    title="Why Freshers Are Unemployable Today — and How to Fix It"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+</div>
+<div class="flex flex-col items-center gap-3 mt-4">
+<button onclick="openModal()" class="bg-primary hover:bg-red-600 transition-all text-white text-lg font-heading font-bold px-10 py-4 rounded-lg shadow-[0_4px_14px_0_rgba(238,43,43,0.39)] w-full md:w-auto uppercase tracking-wide">
+                Apply for the Mentorship
+            </button>
+<span class="text-gray-500 text-sm font-body font-medium tracking-wide uppercase">Serious candidates only</span>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-black border-t border-[#222]">
+<div class="max-w-3xl mx-auto flex flex-col gap-8 text-center">
+<div class="inline-block w-16 h-1 bg-primary mx-auto rounded"></div>
+<h2 class="text-3xl md:text-5xl font-heading font-bold uppercase tracking-tight">
+<span class="text-white">The Reality</span> <span class="text-primary">No One Tells You</span>
+</h2>
+<p class="text-xl text-gray-300 leading-relaxed font-body font-medium">
+            AI codes faster than you. Mid & senior developers are getting laid off.
+            <br class="hidden md:block"/>The market is flooded with juniors who know syntax but can't build.
+        </p>
+<div class="py-6">
+<h3 class="text-4xl md:text-5xl font-heading font-bold text-accent">Why would a company hire you?</h3>
+</div>
+<p class="text-primary font-heading font-bold text-lg uppercase tracking-wide">
+            If you’re doing what AI can already do — you’re replaceable.
+        </p>
+</div>
+</section>
+<section class="py-20 px-6 bg-surface-dark">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-heading font-bold mb-4 uppercase tracking-tight">
+                This Is <span class="text-accent">Mentorship</span>. Not Teaching.
+            </h2>
+<p class="text-gray-400 font-body font-medium">Forget outdated university curriculums.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+<div class="bg-[#0a0a0a] border border-[#333] p-10 rounded-lg relative overflow-hidden h-full flex flex-col justify-center">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl text-white">code_blocks</span>
+</div>
+<ul class="space-y-6 relative z-10">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">terminal</span>
+<div>
+<h4 class="text-white font-heading font-bold text-lg">AI-Augmented Development</h4>
+<p class="text-gray-400 text-sm font-body font-medium">How real developers use AI to 10x output, not just generate boilerplate.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">hub</span>
+<div>
+<h4 class="text-white font-heading font-bold text-lg">System Thinking</h4>
+<p class="text-gray-400 text-sm font-body font-medium">Moving from "writing code" to "designing architectures" and deployment.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">visibility_off</span>
+<div>
+<h4 class="text-white font-heading font-bold text-lg">The Hidden Curriculum</h4>
+<p class="text-gray-400 text-sm font-body font-medium">What companies expect regarding soft skills, PR reviews, and debugging, but never teach.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="flex flex-col gap-6">
+<div class="bg-black border border-[#333] p-6 rounded-lg">
+<h3 class="text-accent font-heading font-bold text-xl mb-2">Mentored by working developers.</h3>
+<p class="text-gray-300 font-body font-medium">Not professors who haven't shipped code in a decade. We are in the trenches daily.</p>
+</div>
+<div class="relative aspect-video rounded-lg overflow-hidden border border-[#333]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Group of serious developers collaborating in dark office" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7vZRTPWb3c1YwnPSlYZlZQAv7y-qOve6RdAcmcDcFhoS4uA-fsB5c6rlFslNpkSGufDCRf81XAq1CWrY41TrJ8nCsQ6DcAmdxWYL5vnDTQlq9k8CRCecQ_R57dx7Ldckq8gnOM5fcHDDzPXU088K1ySoXdlDbwA0aaHFu1m4jNaLDPcLhbFkqmnLx1rjvj-rrt8_UZIxztaPJy4coGPiea339KSCUAnHUHmjeoRgt3TnRT3ciXIy925Gxug4kWVsrZJF_cvewMns');"></div>
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-background-dark">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl md:text-5xl font-heading font-bold mb-12 text-center text-white uppercase tracking-tight">What You Gain</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-[#111] p-6 rounded border border-[#333] hover:border-accent transition-colors duration-300 group">
+<span class="material-symbols-outlined text-accent text-4xl mb-4 group-hover:scale-110 transition-transform">trending_up</span>
+<h3 class="font-heading font-bold text-lg mb-2">Career Longevity</h3>
+<p class="text-gray-400 text-sm font-body font-medium">A career that survives AI disruption because you adapt faster.</p>
+</div>
+<div class="bg-[#111] p-6 rounded border border-[#333] hover:border-accent transition-colors duration-300 group">
+<span class="material-symbols-outlined text-accent text-4xl mb-4 group-hover:scale-110 transition-transform">layers</span>
+<h3 class="font-heading font-bold text-lg mb-2">Compounding Skills</h3>
+<p class="text-gray-400 text-sm font-body font-medium">Skills that compound over time, making you more valuable each year.</p>
+</div>
+<div class="bg-[#111] p-6 rounded border border-[#333] hover:border-accent transition-colors duration-300 group">
+<span class="material-symbols-outlined text-accent text-4xl mb-4 group-hover:scale-110 transition-transform">psychology</span>
+<h3 class="font-heading font-bold text-lg mb-2">System Confidence</h3>
+<p class="text-gray-400 text-sm font-body font-medium">The confidence to handle real production systems, not just tutorials.</p>
+</div>
+<div class="bg-[#111] p-6 rounded border border-[#333] hover:border-accent transition-colors duration-300 group">
+<span class="material-symbols-outlined text-accent text-4xl mb-4 group-hover:scale-110 transition-transform">rocket_launch</span>
+<h3 class="font-heading font-bold text-lg mb-2">Innovation & Scale</h3>
+<p class="text-gray-400 text-sm font-body font-medium">The ability to innovate and scale products from zero to one.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 px-6 bg-background-dark flex items-center justify-center">
+<p class="text-center text-2xl font-heading font-bold">
+            <span class="bg-gradient-to-r from-primary/20 to-yellow-500/20 px-6 py-3 rounded-lg border-2 border-primary inline-block">
+                Stop begging for jobs. <span class="text-primary">Become skilled enough to choose where you work</span>.
+            </span>
+        </p>
+</section>
+<section class="py-20 px-6 bg-black relative overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-4xl mx-auto relative z-10">
+<div class="border-2 border-primary/50 bg-[#080808] rounded-xl p-8 md:p-12 text-center shadow-[0_0_40px_rgba(238,43,43,0.15)]">
+<h2 class="text-4xl md:text-6xl font-heading font-black text-white mb-6 uppercase tracking-tight">
+                100% Free <span class="text-accent">Mentorship</span>
+</h2>
+<p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-body font-medium">
+                This is free because we want serious builders — not passive learners. We invest in talent we can hire or partner with later.
+            </p>
+<div class="bg-[#151515] border-l-4 border-accent p-6 text-left max-w-2xl mx-auto rounded-r">
+<p class="text-accent text-lg md:text-xl font-heading font-bold italic">
+                    "AI won’t replace you. Someone using AI better than you will."
+                </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-background-dark">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-3xl md:text-5xl font-heading font-bold mb-10 text-white text-center uppercase tracking-tight">What You Also Get</h2>
+<div class="bg-[#111] border border-[#333] rounded-lg p-8">
+<ul class="space-y-6">
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-black bg-accent rounded-full p-1 text-xl font-bold">check</span>
+<span class="text-lg md:text-xl text-white font-body font-medium">Industry-grade AI tools & workflows access</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-black bg-accent rounded-full p-1 text-xl font-bold">check</span>
+<span class="text-lg md:text-xl text-white font-body font-medium">End-to-end mentorship (From Development → Deployment)</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-black bg-accent rounded-full p-1 text-xl font-bold">check</span>
+<span class="text-lg md:text-xl text-white font-body font-medium">Top performers get internship opportunities at <span class="text-accent">Ravex Alpha</span></span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-black relative border-y border-[#333]">
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+<h2 class="text-6xl md:text-8xl font-display font-black uppercase text-white tracking-wide leading-none">
+            Limited Seats. <br/>
+<span class="text-primary">No Late Entry.</span>
+</h2>
+<p class="text-gray-400 text-lg max-w-xl font-body font-medium">
+            The next cohort is forming now. Don't let hesitation cost you your future in tech.
+        </p>
+<button onclick="openModal()" class="bg-primary hover:bg-red-600 transition-all text-white text-xl font-heading font-bold px-12 py-5 rounded-lg shadow-[0_0_20px_rgba(238,43,43,0.4)] transform hover:scale-105 active:scale-95 duration-200 uppercase tracking-widest">
+            Apply Now
+        </button>
+</div>
+</section>
+<section class="py-16 px-6 bg-[#0a0a0a]">
+<div class="max-w-2xl mx-auto bg-[#1a0505] border border-red-900/30 rounded-lg p-8 flex flex-col items-center text-center">
+<div class="bg-primary/20 p-3 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">warning</span>
+</div>
+<h3 class="text-2xl font-heading font-bold text-primary mb-6 uppercase">Do Not Apply If</h3>
+<ul class="space-y-3 mb-8 text-gray-300">
+<li class="flex items-center gap-2 justify-center font-body font-medium">
+<span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                You want shortcuts or "get rich quick" schemes
+            </li>
+<li class="flex items-center gap-2 justify-center font-body font-medium">
+<span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                You want spoon-feeding (we build builders, not followers)
+            </li>
+<li class="flex items-center gap-2 justify-center font-body font-medium">
+<span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                You’re not serious about mastering your craft
+            </li>
+</ul>
+<p class="text-accent font-heading font-bold text-lg uppercase">
+            If you’re not ready to work — don’t join.
+        </p>
+</div>
+</section>
+<footer class="py-8 bg-black text-center border-t border-[#222]">
+<p class="text-gray-600 text-sm font-body font-medium">© 2024 Elite Mentorship. All rights reserved.</p>
+</footer>
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+<div class="bg-background-dark p-10 rounded-lg max-w-2xl w-full mx-4 relative border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.5)]">
+<button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl hover:text-primary transition-colors">&times;</button>
+<h2 class="text-white text-2xl mb-6 font-heading font-bold text-center">Apply for Mentorship</h2>
+<form id="applicationForm">
+<input type="text" name="name" placeholder="Name" class="w-full p-3 mb-4 bg-white text-black border border-gray-300 rounded font-body" required>
+<input type="email" name="email" placeholder="Email" class="w-full p-3 mb-4 bg-white text-black border border-gray-300 rounded font-body" required>
+<input type="tel" name="whatsapp" placeholder="WhatsApp No" class="w-full p-3 mb-4 bg-white text-black border border-gray-300 rounded font-body" required>
+<input type="text" name="role" placeholder="Role" class="w-full p-3 mb-4 bg-white text-black border border-gray-300 rounded font-body" required>
+<button type="button" id="submitBtn" onclick="submitForm()" class="bg-primary hover:bg-red-600 text-white px-6 py-3 rounded font-heading font-bold uppercase mx-auto block transition-all duration-300 flex items-center justify-center gap-2 min-w-[150px]">
+<span id="submitText">Submit</span>
+<span id="submitLoader" class="hidden">
+<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+</svg>
+</span>
+</button>
+</form>
+</div>
+</div>
+<script>
+function openModal() {
+    document.getElementById('modal').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('applicationForm').reset();
+}
+
+function submitForm() {
+    const form = document.getElementById('applicationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitLoader = document.getElementById('submitLoader');
+    const formData = new FormData(form);
+
+    // Validate form
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        whatsapp: formData.get('whatsapp'),
+        role: formData.get('role')
+    };
+
+    // Show loader and disable button
+    submitText.classList.add('hidden');
+    submitLoader.classList.remove('hidden');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+    fetch('/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => {
+        // Hide loader and enable button
+        submitText.classList.remove('hidden');
+        submitLoader.classList.add('hidden');
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+
+        alert(data.message);
+        if(data.success) {
+            closeModal();
+        }
+    })
+    .catch(err => {
+        // Hide loader and enable button
+        submitText.classList.remove('hidden');
+        submitLoader.classList.add('hidden');
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+
+        console.error('Error:', err);
+        alert('Error submitting form');
+    });
+}
+</script>
+</body></html>

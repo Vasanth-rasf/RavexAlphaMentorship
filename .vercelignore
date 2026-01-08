@@ -1,9 +1,8 @@
-server.js
 test-form.js
 test-submit.js
 server.log
 setup-sheets-credentials.js
-node_modules
-.env
-.git
+README.md
+QUICK_START.md
+GOOGLE_SHEETS_SETUP.md
 

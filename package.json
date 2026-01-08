@@ -2,9 +2,9 @@
   "name": "mentorship-landing",
   "version": "1.0.0",
   "description": "Landing page for Elite Mentorship",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
   },
   "dependencies": {
     "cors": "^2.8.5",

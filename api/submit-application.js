@@ -83,7 +83,7 @@ async function addToGoogleSheets(data) {
   }
 }
 
-module.exports = async (req, res) => {
+const handler = async (req, res) => {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -350,4 +350,7 @@ module.exports = async (req, res) => {
     res.status(500).json({ success: false, message: 'Failed to submit application.' });
   }
 };
+
+module.exports = handler;
+module.exports.default = handler;
 

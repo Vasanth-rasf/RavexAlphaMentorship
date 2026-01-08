@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const path = require('path');
+const { google } = require('googleapis');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,11 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Serve index.html at root
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+app.use(express.static('.')); // Serve static files from current directory
 
 // Nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -31,21 +27,216 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Google Sheets Setup
+let sheetsClient = null;
+
+// Initialize Google Sheets client
+async function initGoogleSheets() {
+  try {
+    // Check if credentials are provided
+    if (!process.env.GOOGLE_SHEETS_CREDENTIALS) {
+      console.log('⚠️  Google Sheets integration disabled - No credentials found');
+      return null;
+    }
+
+    const credentials = JSON.parse(process.env.GOOGLE_SHEETS_CREDENTIALS);
+
+    const auth = new google.auth.GoogleAuth({
+      credentials: credentials,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    const authClient = await auth.getClient();
+    sheetsClient = google.sheets({ version: 'v4', auth: authClient });
+
+    console.log('✅ Google Sheets integration enabled');
+    return sheetsClient;
+  } catch (error) {
+    console.error('❌ Error initializing Google Sheets:', error.message);
+    return null;
+  }
+}
+
+// Function to add data to Google Sheets
+async function addToGoogleSheets(data) {
+  try {
+    if (!sheetsClient || !process.env.GOOGLE_SHEET_ID) {
+      console.log('⚠️  Skipping Google Sheets - Not configured');
+      return;
+    }
+
+    const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+    const values = [[
+      timestamp,
+      data.name,
+      data.email,
+      data.phone,
+      data.college,
+      data.year,
+      data.why,
+      data.expectations,
+      data.experience || 'None',
+      data.commitment ? 'Yes' : 'No'
+    ]];
+
+    await sheetsClient.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: 'Sheet1!A:J', // Adjust sheet name if needed
+      valueInputOption: 'RAW',
+      resource: { values },
+    });
+
+    console.log('✅ Data added to Google Sheets');
+  } catch (error) {
+    console.error('❌ Error adding to Google Sheets:', error.message);
+    // Don't throw error - we don't want to fail the whole submission if sheets fails
+  }
+}
+
+// Initialize Google Sheets on startup
+initGoogleSheets();
+
 // Route to handle form submission
-app.post('/submit', async (req, res) => {
-  const { name, email, whatsapp, role } = req.body;
+app.post('/api/submit-application', async (req, res) => {
+  const { name, email, phone, college, year, why, expectations, experience, commitment } = req.body;
 
   // Email to admin (notification)
   const adminMailOptions = {
     from: process.env.SENDER_EMAIL,
     to: process.env.RECEIVER_EMAIL,
-    subject: 'New Mentorship Application',
+    subject: '🎯 New Mentorship Application',
     html: `
-      <h2>New Application Received</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>WhatsApp:</strong> ${whatsapp}</p>
-      <p><strong>Role:</strong> ${role}</p>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+          }
+          .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 3px solid #FFD700;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+          .header {
+            background: linear-gradient(135deg, #ee2b2b 0%, #c41e1e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+          }
+          .header h1 {
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+          .section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #FFD700;
+            border-radius: 4px;
+          }
+          .section-title {
+            color: #ee2b2b;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 8px 0;
+            font-weight: bold;
+          }
+          .section-content {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            white-space: pre-wrap;
+          }
+          .highlight {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #FFD700;
+            margin: 20px 0;
+          }
+          .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+            font-size: 14px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>🎯 New Mentorship Application</h1>
+          </div>
+
+          <div class="section">
+            <p class="section-title">👤 Full Name</p>
+            <p class="section-content">${name}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-title">📧 Email Address</p>
+            <p class="section-content">${email}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-title">📱 Phone Number</p>
+            <p class="section-content">${phone}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-title">🎓 College/University</p>
+            <p class="section-content">${college}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-title">📚 Year of Study</p>
+            <p class="section-content">${year}</p>
+          </div>
+
+          <div class="highlight">
+            <p class="section-title">💡 Why do they want to join?</p>
+            <p class="section-content">${why}</p>
+          </div>
+
+          <div class="highlight">
+            <p class="section-title">🎯 What do they expect to learn?</p>
+            <p class="section-content">${expectations}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-title">💻 Prior Coding Experience</p>
+            <p class="section-content">${experience || 'None mentioned'}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-title">✅ Commitment Confirmed</p>
+            <p class="section-content">${commitment ? '✅ Yes - Ready to commit' : '❌ No'}</p>
+          </div>
+
+          <div class="footer">
+            <p>📅 Received: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
+            <p style="margin-top: 10px; color: #ee2b2b; font-weight: bold;">Elite Mentorship Application System</p>
+          </div>
+        </div>
+      </body>
+      </html>
     `,
   };
 
@@ -142,10 +333,11 @@ app.post('/submit', async (req, res) => {
   };
 
   try {
-    // Send both emails
+    // Send both emails and save to Google Sheets in parallel
     await Promise.all([
       transporter.sendMail(adminMailOptions),
-      transporter.sendMail(userMailOptions)
+      transporter.sendMail(userMailOptions),
+      addToGoogleSheets({ name, email, phone, college, year, why, expectations, experience, commitment })
     ]);
 
     res.json({ success: true, message: 'Application submitted successfully! Check your email.' });
@@ -155,12 +347,6 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-// For local development
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-  });
-}
-
-// Export for Vercel
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
